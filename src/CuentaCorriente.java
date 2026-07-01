@@ -26,7 +26,7 @@ public class CuentaCorriente extends CuentaBancaria {
         if (monto > saldo1) {
             System.out.println("El monto no es valido, intenta retirar " + monto +  " pero solo puede retirar " + saldo1);
         } else {
-            System.out.println(" Retiro exitoso " + " Su saldo es " + getSaldo() + " su retiro es " + monto + " retiro mas de lo que tenia en su cuenta " + (getSaldo() - monto) + " la comision fue " + (( monto - getSaldo()) * porcentajeComisionSobregiro));
+            System.out.println(" Retiro exitoso " + " Su saldo es " + getSaldo() + " su retiro es " + monto + " retiro mas de lo que tenia en su cuenta " + (saldo1 - monto) + " la comision fue " + (( monto - saldo1) * porcentajeComisionSobregiro));
         }
     }
 

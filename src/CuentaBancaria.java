@@ -4,6 +4,7 @@ public abstract class CuentaBancaria {
     private double saldo;
     private double tasaInteres;
     private double monto;
+    private double saldoEmpresarial;
 
 
     public CuentaBancaria (String numeroCuenta, String titular, double saldoInicial, double tasaInteres){
@@ -17,6 +18,21 @@ public abstract class CuentaBancaria {
             System.out.println("Su saldo es: " + saldoInicial + " Tasa de interes " + tasaInteres);
         }
     }
+
+    public CuentaBancaria(String numeroCuenta, String titular, double saldoInicial, double tasaInteres, double saldoEmpresarial){
+        saldoEmpresarial = saldoInicial;
+
+        if (saldoEmpresarial  < 100000){
+            System.out.println("Error al crear cuenta");
+        } else{
+            this.numeroCuenta =numeroCuenta;
+            this.titular=titular;
+            this.saldo=saldoInicial;
+            this.tasaInteres=tasaInteres;
+            System.out.println("Su saldo es: " + saldoInicial + " Tasa de interes " + tasaInteres);
+        }
+    }
+
     // void siginifica que no vamos a devolver un valor
     public void depositar (double monto ){
 
@@ -58,6 +74,10 @@ public abstract class CuentaBancaria {
 
     public double getTasaInteres() {
         return tasaInteres;
+    }
+
+    public double getSaldoEmpresarial() {
+        return saldoEmpresarial;
     }
 
 }
