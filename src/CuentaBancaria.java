@@ -7,20 +7,18 @@ public abstract class CuentaBancaria {
 
 
     public CuentaBancaria (String numeroCuenta, String titular, double saldoInicial, double tasaInteres){
-        this.numeroCuenta =numeroCuenta;
-        this.titular=titular;
-        this.saldo=saldoInicial;
-        this.tasaInteres=tasaInteres;
-
-        if (saldoInicial < 0 && tasaInteres < 0){
-            System.out.println("El saldo inicial y tasa de interes no puede ser negativo");
+        if (saldoInicial < 10000 || tasaInteres < 0){
+            System.out.println("Error al crear cuenta");
         } else{
+            this.numeroCuenta =numeroCuenta;
+            this.titular=titular;
+            this.saldo=saldoInicial;
+            this.tasaInteres=tasaInteres;
             System.out.println("Su saldo es: " + saldoInicial + " Tasa de interes " + tasaInteres);
         }
     }
-
+    // void siginifica que no vamos a devolver un valor
     public void depositar (double monto ){
-        this.monto=monto;
 
         if (monto <= 0 ) {
             System.out.println("No se puede depositar esta cantidad");
@@ -33,25 +31,25 @@ public abstract class CuentaBancaria {
     public abstract void retirar (double monto);
 
     public void aplicarInteres (){
-        double interesGeredo = saldo * (tasaInteres/100);
-        double saldoTotal = saldo+interesGeredo;
-        System.out.println("Interes generado es " + interesGeredo);
+        double interesGenerado = saldo * (tasaInteres/100);
+        double saldoTotal = saldo+interesGenerado;
+        System.out.println("Interes generado es " + interesGenerado);
         System.out.println("Nuevo saldo con interes es " + saldoTotal);
     }
 
     public void mostrarInfo (){
-        System.out.println("El numero de cuenta es " + numeroCuenta + " y pertenece a " + titular +
-                            " con un saldo de " + saldo + " e interes de " + tasaInteres);
+        System.out.println("El numero de cuenta es " + getNumeroCuenta() + " y pertenece a " + getTitular() +
+                            " con un saldo de " + getSaldo() + " e interes de " + getTasaInteres());
     }
 
     // Getters
 
     public String getNumeroCuenta() {
-        return numeroCuenta;
-    }
+            return numeroCuenta;
+        }
 
-    public String getTitular() {
-        return titular;
+        public String getTitular() {
+            return titular;
     }
 
     public double getSaldo() {

@@ -1,17 +1,11 @@
 public class CuentaAhorro extends CuentaBancaria{
-
-    private String fechaApertura;
+// FINAL DICE QUE DEBE SER CONSTANTE
+    private final String fechaApertura;
 
     public CuentaAhorro (String numeroCuenta, String titular, double saldoInicial, String fechaApertura){
        super(numeroCuenta,titular,saldoInicial, 2.5);
 
        this.fechaApertura = fechaApertura;
-
-        if (saldoInicial<10000) {
-            System.out.println("La cuenta no se puede abrir con este monto");
-        } else {
-            System.out.println("Su cuenta fue abierta con " + saldoInicial);
-        }
     }
 
     @Override
