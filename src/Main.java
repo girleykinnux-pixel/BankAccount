@@ -6,7 +6,7 @@ public class Main {
 
 
         System.out.println(cuentaJulian.getSaldo());
-        cuentaJulian.retirar(100000);
+        cuentaJulian.retirar(70000);
 
 
     }
